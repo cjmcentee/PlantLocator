@@ -9,7 +9,7 @@ namespace PlantLocator
 {
     public class CartInfo
     {
-        public bool Selected { get; set; }
+        //public bool Selected { get; set; }
 
         public int ConveyorGroup { get; set; }
         public const string CONVEYOR_GROUP_LABEL = "Conveyor Group";
@@ -30,7 +30,7 @@ namespace PlantLocator
 
         public CartInfo()
         {
-            Selected = false;
+            //Selected = false;
         }
 
         public override string ToString()
@@ -43,20 +43,20 @@ namespace PlantLocator
         {
             IEnumerable<CartInfo> sortedCarts = null;
 
-            if (columnIndex == 0)
+            /*if (columnIndex == 0)
                 sortedCarts = from cart in carts orderby cart.Selected ascending select cart;
-            else if (columnIndex == 1)
+            else */if (columnIndex == 0)
                 sortedCarts = from cart in carts orderby cart.ConveyorGroup ascending select cart;
-            else if (columnIndex == 2)
+            else if (columnIndex == 1)
                 sortedCarts = from cart in carts orderby cart.ConveyorBelt ascending select cart;
-            else if (columnIndex == 3)
+            else if (columnIndex == 2)
                 sortedCarts = from cart in carts orderby cart.CartPosition ascending select cart;
-            else if (columnIndex == 4)
+            else if (columnIndex == 3)
                 sortedCarts = from cart in carts orderby cart.CarTag ascending select cart;
-            else if (columnIndex == 5)
+            else if (columnIndex == 4)
                 sortedCarts = from cart in carts orderby cart.PlantBarcode ascending select cart;
             else
-                throw new InvalidOperationException("CartInfo doesn't have more than 6 fields.");
+                throw new InvalidOperationException("CartInfo doesn't have more than 5 fields.");
 
             return sortedCarts.ToList();
         }
